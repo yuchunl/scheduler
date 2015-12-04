@@ -1,15 +1,6 @@
 Simon Fraser University CMPT 470 GROUP 12 
 Scheduler Application README
 
-TABLE OF CONTENTS
-=================
-1. General Function Descriptions
-2. How to use Scheduling Application
-3. List of Bugs
-4. Test Usernames
-5. Member of team
-=================
-
 1. General Function Descriptions
 --------------------------------
 We have designed an application that will assist in employee managing for a general workplace. 
@@ -100,7 +91,7 @@ Employee View:
 
 3. List of Bugs
 ---------------
-- Can’t see employee detail in employee list
+- Canâ€™t see employee detail in employee list
 - There are currently no confirmation screens  for selecting date in open availabililty.
 - No confirmation screen after selecting time slot.
 - View availbilty will display boolean instead of "Pending" or "Accepted" in Firefox.
@@ -125,7 +116,7 @@ Password: pwdpwd
 
 
 5. Member of team
-ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ
+Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘Ã‘
 Yu-Chun(May) Lin
 Yuan(Kimi) Li
 Zoya Zou
