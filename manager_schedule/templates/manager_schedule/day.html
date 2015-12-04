@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<title>day</title>
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+ <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="{% static "css/theme.css" %}">
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<div class="text-center" style="padding:50px 0">
+
+<script type="text/javascript">
+function exc(){
+	if(document.querySelectorAll('input[type="checkbox"]:checked').length==0){
+		document.getElementById('sub').disabled = true;
+	}
+	else{
+		document.getElementById('sub').disabled = false;
+	}
+}	
+</script>
+<div class="text-center" style="padding:50px 0">
+
+
+<div class="logo">{{ year }}/{{ month }}/{{ day }}</div>
+
+
+{% if timeslot_list %}
+
+	<form action="{% url 'manager_schedule.views.select_time' %}" method="post">{% csrf_token %}
+	{% for timeslot in timeslot_list %}
+		<input type="checkbox" onclick = "exc()" name="timeslot" id="timeslot{{forloop.counter}}" value="{{ timeslot.id }}" />
+		<label for="timeslot{{ forloop.counter }}">{{timeslot.creator}}: {{ timeslot }}</label><br />
+	{% endfor %}
+	<center><input type="submit" id="sub" value="Assign" disabled /></center>
+	</form>
+{% else %}
+
+<div class="login-form-1">
+        <form id="login-form" class="text-left">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+    <p>Not available.</p>
+         </div>
+            </div>
+            </div>  
+        </form>
+</div>
+</div>
+
+{% endif %}
+</div>
+</div>              
+           
+<a href= "{% url 'manager_schedule.views.main' %}">Back</a>
+</html>

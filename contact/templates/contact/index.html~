@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+        <title>Messages</title>
+    </head>
+
+    <body>
+        <h1>Messages</h1>
+
+       <a href="{% url 'new-message' %}"><h2> Write a new Message </h2></a><br />
+
+
+
+    {% if contact_list %}
+        <ul> 
+        {% for UserProfile in contact_list %}
+            <li>
+                <a> 
+                    Title:{{ UserProfile.title }}<p> </p>
+
+                    Message:  {{ UserProfile.message }}<p> </p>
+
+                    user:  {{ UserProfile.user }}<p> </p>
+
+                    time:  {{ UserProfile.time }}<p> </p>
+
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There is no message is the database</p>
+    {% endif %}
+
+       
+
+    </body>
+
+</html>

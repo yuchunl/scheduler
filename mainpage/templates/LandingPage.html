@@ -1,0 +1,12 @@
+<h1>Employee Management System</h1>
+
+<h2>Welcome back {{ user.username }}</h2>
+<ul>
+  <li>
+      <a href="{% url "personalinfo" %}"> Personal Information</a>	
+  </li>
+  <li><a href="{% url 'employee_schedule.views.month' year month %}">Schedule</li>
+  <li>Messaging</li>
+</ul>
+
+<a href = "{% url "logout" %}">Logout</a>

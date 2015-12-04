@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <title>view employees</title>
+         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+ <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="{% static "css/theme.css" %}">
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+    </head>
+
+ <div class="text-center" style="padding:20px 0">
+    <div class="logo">employees</div>
+<p>Please go to admin site to see detail</p>
+<div class="login-form-1">
+        <form id="login-form" class="text-left">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+<form method="post" action="{% url 'manager_schedule.views.view_employees' %}" enctype="multipart/form-data">
+	{% csrf_token %}
+	<ul>
+	{% for username in group %}
+		<li>{{ username }}</li>
+	{% endfor %}
+	</ul>
+</form>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+<center>
+ <a href="/Scheduler/register">Add an new employee</a></br>
+ <a href="{% url 'manager-main' %}">Back</a>
+</center>
+</html>

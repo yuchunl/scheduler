@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+        <title>Messages</title>
+         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+ <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="{% static "css/theme.css" %}">
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+       <div class="text-center" style="padding:50px 0">
+    <div class="logo">messages</div>
+       
+<div class="login-form-1">
+        <form id="login-form" class="text-left">
+            <div class="login-form-main-message"></div>
+            <div class="main-login-form">
+                <div class="login-group">
+                    <div class="form-group">
+    {% if contact_list %}
+        <ul> 
+        {% for UserProfile in contact_list %}
+            <li>
+                <a> 
+                    Title:{{ UserProfile.title }}<p> </p>
+                    Message:  {{ UserProfile.message }}<p> </p>
+                    Posted by:  {{ UserProfile.user }}<p> </p>
+                    Time:  {{ UserProfile.time }}<p> </p>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+</div>
+</div>
+            </div>  
+        </form>
+<a href="{% url 'message-new' %}"><h2> Write a new Message </h2></a><br />
+        
+        {% if user_is_admin %}
+            <a href="{% url 'manager-main' %}">Back to Homepage</a>
+        {% else %}
+            <a href="{% url 'employee-main' %}">Back to Homepage</a>
+        {% endif %}
+    {% else %}
+        <p>There is no message is the database</p></br>
+        {% if user_is_admin %}
+            <a href="{% url 'manager-main' %}">Back to Homepage</a>
+        {% else %}
+            <a href="{% url 'employee-main' %}">Back to Homepage</a>
+        {% endif %}
+    {% endif %}
+       
+       </body>
+                
+    </div>
+</div>
+</html>

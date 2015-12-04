@@ -1,0 +1,9 @@
+<h1>{{ user.username }}</h1>
+
+<p>Address: {{ user.employee.address }}</p>
+<p>Phone Number: {{ user.employee.phone_num }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Gender: {{ user.employee.gender }}</p>
+
+
+<a href = "{% url "index" %}">Back</a>

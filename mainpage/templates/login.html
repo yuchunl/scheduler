@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Scheduler</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<!--standard-->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<!--custom -->
+	<link rel="stylesheet" href="{% static "/static/css/theme.css" %}">
+	</head>
+
+	<body>
+<style>
+p.small {
+    line-height: 70%;
+}
+
+
+</style>
+		<div class="text-center" style="padding:50px 0">
+		<div class="logo"><h1>login to scheduler</h1></div>
+		<p class="small">
+
+
+		<div class="login-form-1">
+		<form id="login_form" method="post" action="/Scheduler/" class="text-left">
+		<div class="login-form-main-message"></div>
+		<div class="main-login-form">
+			<div class="login-group">
+				<div class="form-group">
+					{% csrf_token %}
+					<label for="username" class="sr-only">Username</label>
+					<input type="text" class="form-control" id="username" name="username" placeholder="username">
+				</div>
+				<div class="form-group">
+					<label for="password" class="sr-only">Password</label>
+					<input type="password" class="form-control" id="password" name="password" placeholder="password">
+					
+
+				</div>
+				<button type="submit" value="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+			</div>
+		</div>
+
+		
+		
+			
+		</form>
+
+		</div>
+</div>
+
+
+
+	<script src="static/js/code.js"></script>
+	</body>
+</html>

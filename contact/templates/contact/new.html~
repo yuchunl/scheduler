@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Message</title>
+    </head>
+
+    <body>
+        <h1>New Message</h1>
+        <h2>Welcome {{ user }}</h2>
+        <h2>time is {{ time }}</h2>
+
+
+
+        {% if isprofiled %}
+        Say: <strong>Thank you for your message!</strong>
+        <a href="{% url 'message-index' %}">Return to the homepage.</a><br />
+        {% else %}
+        <strong>Write new message here!</strong><br />
+
+        <form id="user_form" method="post" action="/MessageBoard/new/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ userprofileform.as_p }}
+
+            <input type="submit" name="submit" value="Submit" />
+        </form>
+        {% endif %}
+
+        <br />
+    </body>
+</html>

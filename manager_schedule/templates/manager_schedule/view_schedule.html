@@ -1,0 +1,79 @@
+<!--<h1>View Schedule</h1>
+{% if assigned_time_list %}
+	<ul>
+	{% for assigned_time in assigned_time_list %}
+	    <li>{{ assigned_time.creator }}: {{ assigned_time }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+    <p>Not available.</p>
+{% endif %}-->
+
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>View Schedule</title>
+	 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+ <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="{% static "css/theme.css" %}">
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+	
+</head>
+<body>
+	<script type="text/javascript">
+
+		function show(){
+			var elecla = document.getElementsByClassName("temp");
+			for(j=0; j < elecla.length; j++){
+				document.getElementsByClassName("temp")[j].setAttribute("style","display:none");
+			}
+			var x = document.getElementById("list").value;
+			var elename = document.getElementsByName(x);
+			for(i=0; i < elename.length; i++){
+				document.getElementsByName(x)[i].setAttribute("style","display:block");
+			}
+		}
+		
+	</script>
+	
+	
+	
+	<div class="text-center" style="padding:50px 0">
+    <div class="logo">view schedule</div>
+
+	{% if distinct_date %}
+		<select id ="list" onchange="show()">
+			<option></option>
+		{% for assigned_time in distinct_date %}
+			
+				<option value="{{assigned_time.date}}">  {{ assigned_time.date }}</option>
+				
+		{% endfor %}
+		</select>
+	{%endif%}
+	
+	
+	{% if assigned_time_list %}
+		<ul>
+		{% for assigned_time in assigned_time_list %}
+		    <li style="display:none " class= "temp" name="{{assigned_time.date}}">{{ assigned_time.creator }}: {{ assigned_time }}</li>
+		{% endfor %}
+		</ul>
+		
+	{% else %}
+	    <p>Not available.</p>
+	{% endif %}
+	
+	<a href= "{% url 'manager_schedule.views.main' %}">Back</a>
+</body>
+</html>

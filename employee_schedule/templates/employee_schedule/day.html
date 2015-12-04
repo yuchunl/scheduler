@@ -1,0 +1,26 @@
+
+<script type="text/javascript">
+function exc(){
+
+	document.getElementById('sub').disabled = false;
+}	
+</script>
+
+
+
+<h4>{{ year }}/{{ month }}/{{ day }}</h4>
+
+<p>{{ error_message }}<p>
+		
+{% if avail_time %}
+	<form action="{% url 'employee_schedule.views.select_time' %}" method="post">{% csrf_token %}
+	{% for availtime in avail_time %}
+		<input type="radio" onclick = "exc()" name="availtime" id="availtime{{forloop.counter}}" value="{{ availtime.id }}" />
+		<label for="availtime{{ forloop.counter }}">{{ availtime }}</label><br />
+	{% endfor %}
+	<input type="submit" value="Submit" id="sub" disabled/>
+	</form>
+{% else %}
+    <p>Not available.</p>
+{% endif %}
+<a href= "{% url 'employee_schedule.views.main' %}">Back</a>

@@ -1,0 +1,107 @@
+<script type="text/javascript">
+function exc(){
+
+	//alert(this.name);
+	if(document.querySelectorAll('input[type="checkbox"]:checked').length==0){
+		document.getElementById('sub').disabled = true;
+	}
+	else{
+		document.getElementById('sub').disabled = false;
+	}
+	
+}	
+
+function temp(a){
+	var nn = "closed_day" + a;
+	document.getElementById(nn).setAttribute("style","display:none");
+}
+
+function assign(y,m,d){
+	var year=y.toString();
+	var month=m.toString();
+	var day=d.toString();
+	var z = 0;
+	var dday=day;
+	var zero = z.toString();
+	if(month.length == 1){
+		month=zero+month;
+	}
+	
+	if(day.length == 1){
+		day=zero+day;
+		var idd = "closed_day"+dday;
+	}
+	else{
+		var idd = "closed_day"+day;
+	}
+	
+	
+	var date = year+month+day+zero;
+	
+	
+	
+	document.getElementById(idd).setAttribute("value",date);
+	
+}
+</script>
+
+<a href= "{% url 'manager_schedule.views.get_closed_days' year month "prev" %}">&lt;&lt; Prev</a>
+<a href= "{% url 'manager_schedule.views.get_closed_days' year month "next" %}">Next &gt;&gt;</a>
+
+<h4>{{ mname }} {{ year }}</h4>
+
+<div class="month">
+	<form action="{% url 'manager_schedule.views.open_day' %}" method="post">{% csrf_token %}
+    <table>
+
+    <tr>
+        <td class="empty">Mon</td>
+        <td class="empty">Tue</td>
+        <td class="empty">Wed</td>
+        <td class="empty">Thu</td>
+        <td class="empty">Fri</td>
+        <td class="empty">Sat</td>
+        <td class="empty">Sun</td>
+    </tr>
+
+    {% for week in month_days %}
+        <tr>
+        {% for day, entries, current in week %}
+
+            <!-- TD style: empty | day | current; onClick handler and highlight  -->
+            <td class= {% if day == 0 %}"empty"{% endif %}
+            {% if day != 0 and not current %}"day"{% endif %}
+            {% if day != 0 and current %}"current"{% endif %}
+            {% if day != 0 %}
+                onMouseOver="this.bgColor='#eeeeee';"
+                onMouseOut="this.bgColor='white';"
+            {% endif %} >
+
+            <!-- Day number and entry snippets -->
+            {% if day != 0 %}
+            	<input type="checkbox" onclick="exc()" name="closed_day" id="closed_day{{day}}"  />
+            	<script type="text/javascript">
+            		assign({{year}}, {{month}}, {{day}});
+            	</script>
+            	<label>{{ day }}</label><br />
+            	
+            	{% for date in date_list %}
+            		{% if day == date.date.day and month == date.date.month and year == date.date.year %}
+            			<script type="text/javascript">
+            				temp({{day}});
+            			</script>
+            			
+					{% endif %}
+				{% endfor %}
+        	{% endif %}
+        	</td>
+        {% endfor %}	
+        </tr>
+    {% endfor %}
+    </table>
+    <input type="submit" value="Open" id="sub" disabled/>
+    </form>
+ 
+    <div class="clear"></div>
+</div>
+<a href= "{% url 'manager_schedule.views.main' %}">Back</a>

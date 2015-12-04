@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
+        <title>Message</title>
+    </head>
+
+    <body>
+
+    	
+    	<h1>Message:{{ userprofile.title }} {{ userprofile.last_name }}</h1>
+
+    	<p>Title:{{ userprofile.title }}</p>
+
+
+    	<p>Message:{{ userprofile.message }}</p>
+
+    	
+       
+       <a href="/contact/">List of people</a><br />
+       <!-- go to the contact app and find the view.py's edit function, userprofile.id is its' parameter -->
+       <a href="{% url 'contact:edit' userprofile.id %}">Edit contact</a><br />
+
+    </body>
+</html>
+
+
+
