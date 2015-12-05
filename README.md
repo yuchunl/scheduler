@@ -107,18 +107,18 @@ From there, only the admin or any designated staff accounts can log in to here.
 
 # Test Usernames
 ### Employee View
->> Username: employee1
->> Password: pwdpwd
+	Username: employee1
+	Password: pwdpwd
+	
+	Username: employee2
+	Password: pwdpwd
+	
+	Username: employee3
+	Password: pwdpwd
 
-Username: employee2
-Password: pwdpwd
-
-Username: employee3
-Password: pwdpwd
-
-## Admin/Manager View
-Username: admin
-Password: pwdpwd
+### Admin/Manager View
+	Username: admin
+	Password: pwdpwd
 
 
 # Member of team
