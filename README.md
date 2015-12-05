@@ -6,7 +6,7 @@ Scheduler Application README
 - How to use Scheduling Application		
 - List of Bugs		
 - Test Usernames		
-- Member of team
+- Team Members
 
 # General Function Descriptions
 We have designed an application that will assist in employee managing for a general workplace. 
@@ -121,7 +121,7 @@ From there, only the admin or any designated staff accounts can log in to here.
 	Password: pwdpwd
 
 
-# Member of team
+# Team Members
 - Yu-Chun(May) Lin
 - Yuan(Kimi) Li
 - Zoya Zou
