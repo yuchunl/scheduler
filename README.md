@@ -47,8 +47,9 @@ Admins are able to create and edit staff, grant or reject permissions through th
 
 # How to use Scheduling Application
 
-## Admin View:
+### Admin View:
 After logging in, you will be at the main page.
+
 	From the Navigation Bar: 
 	TO SEE PERSONAL DETAILS
 		>>Select Personal Details
@@ -82,8 +83,9 @@ From there, only the admin or any designated staff accounts can log in to here.
 		>>Edit the appropriate fields then click one of the save options
 	
 
-## Employee View:
+### Employee View:
  After logging in, you will be at the main page.
+ 
 	From the Navigation Bar: 
 	TO SEE PERSONAL DETAILS
 		>>Select Personal Details
@@ -104,9 +106,9 @@ From there, only the admin or any designated staff accounts can log in to here.
 -FIREFOX
 
 # Test Usernames
-## Employee View
-Username: employee1
-Password: pwdpwd
+### Employee View
+>> Username: employee1
+>> Password: pwdpwd
 
 Username: employee2
 Password: pwdpwd
